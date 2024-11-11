@@ -1,2 +1,2 @@
 # depth-estimation 
-Estimating_Depth_of_Monocular_Panoramic_Image_with_Teacher_Student_Model_Fusing_Equirectangular_and_Spherical_Representations impelmentations **https://pan.baidu.com/s/4b8QQAdx**
+Estimating_Depth_of_Monocular_Panoramic_Image_with_Teacher_Student_Model_Fusing_Equirectangular_and_Spherical_Representations impelmentations link: https://pan.baidu.com/s/1E5jy9124kOhFnUf9-ReJGw?pwd=i9ij 提取码: i9ij 复制这段内容后打开百度网盘手机App，操作更方便哦

@@ -87,9 +87,6 @@ def main():
         for batch_idx, inputs in enumerate(pbar):
 
             equi_inputs = inputs["normalized_rgb"].to(device)
-
-            # cube_inputs = inputs["normalized_cube_rgb"].to(device)
-
             outputs = model(equi_inputs,lut256,lut64,lut32)
 
             pred_depth = outputs["pred_depth"].detach().cpu()

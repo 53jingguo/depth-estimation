@@ -17,7 +17,7 @@ parser.add_argument("--data_path", default="G:/Standford2D3D/", type=str, help="
 parser.add_argument("--dataset", default="stanford2d3d", choices=["3d60", "panosuncg", "stanford2d3d", "matterport3d"],
                     type=str, help="dataset to evaluate on.")
 
-parser.add_argument("--load_weights_dir",default='\\weights_1\\', type=str, help="folder of model to load")
+parser.add_argument("--load_weights_dir",default='\\weights\\', type=str, help="folder of model to load")
 
 parser.add_argument("--num_workers", type=int, default=0, help="number of dataloader workers")
 parser.add_argument("--batch_size", type=int, default=1, help="batch size")

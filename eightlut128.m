@@ -7,7 +7,7 @@ rImg=zeros(h,w,td);
 pai=3.14159;
 kk=1;
 
-yita = 360/256*(pi/180)*2;
+yita = 360/256*(pi/180);
 left = [0 -sin(yita) cos(yita)]';
 right = [0 sin(yita) cos(yita)]';
 up = [-sin(yita) 0 cos(yita)]';
@@ -16,27 +16,20 @@ left_up = [-sin(yita)*sin(pi/4) -sin(yita)*cos(pi/4) cos(yita)]';
 left_down = [sin(yita)*sin(pi/4) -sin(yita)*cos(pi/4) cos(yita)]';
 right_up = [-sin(yita)*cos(pi/4) sin(yita)*sin(pi/4) cos(yita)]';
 right_down = [sin(yita)*cos(pi/4) sin(yita)*sin(pi/4) cos(yita)]';
-% left_left_up = [-sin(yita)*cos(pi/8) -sin(yita)*sin(pi/8) cos(yita)]';
-% left_up_up = [-sin(yita)*sin(pi/8) -sin(yita)*cos(pi/8) cos(yita)]';
-% left_left_down = [sin(yita)*sin(pi/8) -sin(yita)*cos(pi/8) cos(yita)]';
-% left_down_down = [sin(yita)*cos(pi/8) -sin(yita)*sin(pi/8) cos(yita)]';
-% right_right_up = [-sin(yita)*sin(pi/8) sin(yita)*cos(pi/8) cos(yita)]';
-% right_up_up = [-sin(yita)*cos(pi/8) sin(yita)*sin(pi/8) cos(yita)]';
-% right_right_down = [sin(yita)*sin(pi/8) sin(yita)*cos(pi/8) cos(yita)]';
-% right_down_down = [sin(yita)*cos(pi/8) sin(yita)*sin(pi/8) cos(yita)]';
+
 
 LUT=zeros(h*w,2);
 kk=1;
 for i=1:h
     for j=1:w
-        theta=(i-1)*180/(h-1)*(pai/180);%£¨0,pai£©
+        theta=(i-1)*180/(h-1)*(pai/180);%ï¼ˆ0,paiï¼‰
         if theta==0
             theta = theta+1e-4;
         end
         if theta>3.1415
             theta = theta-1e-4;
         end
-        fai=(j-1)*360/(w-1)*(pai/180);%£¨0,2*pai£©
+        fai=(j-1)*360/(w-1)*(pai/180);%ï¼ˆ0,2*paiï¼‰
         if fai==0
             fai = fai+1e-4;
         end
@@ -70,7 +63,7 @@ for i=1:h
         Ry=[cos(pitch) 0 sin(pitch);0 1 0;-sin(pitch) 0 cos(pitch)];
         Rz=[cos(yaw) -sin(yaw) 0;sin(yaw) cos(yaw) 0;0 0 1];
         R=Rz*Ry*Rx;
-        %R=Rx*Ry*Rz;%ÒÔÇ°Ë³Ğò³Ë·´ÁË
+        %R=Rx*Ry*Rz;%ä»¥å‰é¡ºåºä¹˜åäº†
         Cor_new=R*[0 0 1]';
         new_X=Cor_new(1);
         new_Y=Cor_new(2);
@@ -105,7 +98,7 @@ for i=1:h
 %         else
         x_new = (x_new - 127.5)/127.5;
         y_new = (y_new - 63.5)/63.5;
-        LUT(kk,:)=[x_new,y_new];%ÒÑ¾­Íê³ÉÁË¹éÒ»»¯£¬²¢ÇÒxºÍyµÄ×ø±êÃ»´íÂÒ£¬²»ĞèÒªÔÚÊ¹ÓÃµÄÊ±ºò½»²æ¸³ÖµÁË
+        LUT(kk,:)=[x_new,y_new];%å·²ç»å®Œæˆäº†å½’ä¸€åŒ–ï¼Œå¹¶ä¸”xå’Œyçš„åæ ‡æ²¡é”™ä¹±ï¼Œä¸éœ€è¦åœ¨ä½¿ç”¨çš„æ—¶å€™äº¤å‰èµ‹å€¼äº†
         kk=kk+1;
 % % % %         if new_Z>0
 % % % %             theta_new=atan(sqrt(new_X.^2+new_Y.^2)/new_Z);
@@ -135,7 +128,7 @@ for i=1:h
 % % % %         rImg(i,j,:)=f(y_new,x_new,:);
 % % % %         x_new = (x_new - 256.0)/256.0;
 % % % %         y_new = (y_new - 128.0)/128.0;
-% % % %         LUT(kk,:)=[x_new,y_new];%ÒÑ¾­Íê³ÉÁË¹éÒ»»¯£¬²¢ÇÒxºÍyµÄ×ø±êÃ»´íÂÒ£¬²»ĞèÒªÔÚÊ¹ÓÃµÄÊ±ºò½»²æ¸³ÖµÁË
+% % % %         LUT(kk,:)=[x_new,y_new];%å·²ç»å®Œæˆäº†å½’ä¸€åŒ–ï¼Œå¹¶ä¸”xå’Œyçš„åæ ‡æ²¡é”™ä¹±ï¼Œä¸éœ€è¦åœ¨ä½¿ç”¨çš„æ—¶å€™äº¤å‰èµ‹å€¼äº†
 % % % %         kk=kk+1;
     end
 end

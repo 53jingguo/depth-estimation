@@ -17,7 +17,7 @@ parser.add_argument("--data_path", default="D:\\Data\\3D60\\", type=str, help="p
 parser.add_argument("--dataset", default="3d60", choices=["3d60", "panosuncg", "stanford2d3d", "matterport3d"],
                     type=str, help="dataset to evaluate on.")
 
-parser.add_argument("--load_weights_dir",default="E:\\liujingguo\\UniFuse\\experiments_3D60_8M_with8tea\\panodepth\\models\\weights_21\\", type=str, help="folder of model to load")
+parser.add_argument("--load_weights_dir",default="E:\experiments_3D60_8M_with8tea\\panodepth\\models\\weights\\", type=str, help="folder of model to load")
 
 parser.add_argument("--num_workers", type=int, default=1, help="number of dataloader workers")
 parser.add_argument("--batch_size", type=int, default=1, help="batch size")

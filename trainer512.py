@@ -102,9 +102,6 @@ class Trainer:
         self.l1_1 = torch.nn.MSELoss()
         self.l1_2 = torch.nn.MSELoss()
         self.l1_3 = torch.nn.MSELoss()
-        self.l1_4 = torch.nn.MSELoss()
-        self.l1_5 = torch.nn.MSELoss()
-        self.l1_6 = torch.nn.MSELoss()
         self.l1_7 = torch.nn.MSELoss()
         self.l1_8 = torch.nn.MSELoss()
         self.l1_9 = torch.nn.MSELoss()
@@ -210,9 +207,7 @@ class Trainer:
             with torch.no_grad():
                 outputs_gt = self.model_tea(gt_depth)
             losses["feature_enc_4"] = self.l1_3(outputs["equi_enc_feat4"], outputs_gt["equi_enc_feat4"]) * 0.01
-            # losses["feature_dec_2"] = self.l1_5(outputs["equi_dec_feat2"], outputs_gt["equi_dec_feat2"])
-            # losses["feature_dec_1"] = self.l1_4(outputs["equi_dec_feat1"], outputs_gt["equi_dec_feat1"])
-            # losses["feature_dec_0"] = self.l1_6(outputs["equi_dec_feat0"], outputs_gt["equi_dec_feat0"])
+
             losses["depth_loss"] = self.compute_loss(inputs["gt_depth"],
                                                    outputs["pred_depth"],
                                                    inputs["val_mask"])

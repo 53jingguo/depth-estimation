@@ -206,7 +206,7 @@ class Trainer:
         """
         self.model.eval()
         self.model_tea.eval()
-        saver = Saver('E:\\liujingguo\\UniFuse\\experiments_3D60_10M\\')
+        saver = Saver('E:\\UniFuse\\experiments_3D60_10M\\')
         self.evaluator.reset_eval_metrics()
 
         pbar = tqdm.tqdm(self.test_loader)
@@ -234,7 +234,7 @@ class Trainer:
                 if batch_idx%100 ==0:
                     saver.save_samples(inputs["rgb"], gt_depth, pred_depth, mask)
 
-        self.evaluator.print(self.epoch, 'E:\\liujingguo\\UniFuse\\experiments_3D60_10M\\')
+        self.evaluator.print(self.epoch, 'E:\\UniFuse\\experiments_3D60_10M\\')
         del inputs, outputs
 
     def log(self, mode, inputs, outputs, losses):
@@ -312,7 +312,7 @@ class Trainer:
     def load_tea(self):
         """Load teacher model from disk
         """
-        load_weights_dir = os.path.expanduser("E:\\liujingguo\\UniFuse\\experiments_tea_3D60_10\\panodepth\\models\\weights_3\\")##256*512 3d60
+        load_weights_dir = os.path.expanduser("E:\\UniFuse\\experiments_tea_3D60_10\\panodepth\\models\\weights_3\\")##256*512 3d60
 
         assert os.path.isdir(load_weights_dir), \
             "Cannot find folder {}".format(load_weights_dir)

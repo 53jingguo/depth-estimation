@@ -93,10 +93,6 @@ def main():
             mask = inputs["val_mask"]
             for i in range(gt_depth.shape[0]):
                 evaluator.compute_eval_metrics(gt_depth[i:i + 1], pred_depth[i:i + 1], mask[i:i + 1])
-            # if batch_idx ==0:
-            #     saver.save_feature(outputs["sph_enc_feat2"][0][0])
-            #     saver.save_feature1(outputs["equi_enc_feat2"][0][0])
-            #     break
             if settings.save_samples:
                 saver.save_samples(inputs["rgb"], gt_depth, pred_depth, mask)
 
